@@ -123,3 +123,7 @@ create_date date,
 last_modified_by date,
 last_modified_by_date date
 );
+
+insert into CONTRACTOR_PROPERTY (value, begin_date, end_date, property_type_id, contractor_id,
+input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('AUTOMATIC', null, null, 1, 1, 'input', null, null, null, null);

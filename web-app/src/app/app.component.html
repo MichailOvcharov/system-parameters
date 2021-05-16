@@ -1,2 +1,35 @@
+<!--<div>-->
+<!--<nav>-->
+<!--  <a routerLink="">Главная</a>-->
+<!--  <a routerLink="/dealtype">О сайте</a>-->
+<!--</nav>-->
+
+<!--<input [formControl]="nameControl" >-->
+<!--<br>-->
+<!--<br>-->
+<!--<input [formControl]="nameControl2">-->
+<!--<br>-->
+
+<!--<fieldset [formGroup] = "fullNameControl">-->
+<!--  <input formControlName="firstName">-->
+<!--  <input formControlName="lastName">-->
+<!--</fieldset>-->
+
+<!--<form [formGroup] ="usersListControl">-->
+<!--  <ul formArrayName="users">-->
+<!--    <li *ngFor="let userControl of getControls(); let i = index">-->
+<!--          <input formControlName="{{i}}" >-->
+<!--      <button (click)="removeUserControl(i)"> Remove</button>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</form>-->
+<!--<button (click)="addUserControl()"> Add</button>-->
+<!--<br>-->
+<!--<br>-->
+  <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a>
+  <a routerLink="users" routerLinkActive="active">Users </a>
+  <a routerLink="systemparameters" routerLinkActive="active">SystemParameters</a>
 
 <router-outlet></router-outlet>
+<!--<button (click)="goHome()">На главную</button>-->
+<!--</div>-->

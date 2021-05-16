@@ -1,6 +1,37 @@
+
 <!--<ul>-->
-<!--  <li *ngFor="let jewelry of guids.jewelry">-->
-<!--    {{currency}}-->
+<!--  <li *ngFor="let dealType of dealTypes">-->
+<!--    {{dealType.name}}-->
 <!--  </li>-->
 <!--</ul>-->
+
+<form [formGroup] = "form" (ngSubmit)="onSubmit()">
+<!--  <label id="example-radio-group-label">Pick your favorite season</label>-->
+<!--  <mat-radio-group-->
+<!--    aria-labelledby="example-radio-group-label"-->
+<!--    class="example-radio-group"-->
+<!--    [(ngModel)]="favoriteSeason">-->
+<!--    <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">-->
+<!--      {{season}}-->
+<!--    </mat-radio-button>-->
+<!--  </mat-radio-group>-->
+<!--  <div>Your favorite season is: {{favoriteSeason}}</div>-->
+
+<!--  <label id="example-radio-group-label">Задачи постановки на спец. учет</label>-->
+  <h2>Задачи постановки на спец. учет</h2>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    formControlName="distribution"
+    >
+    <mat-radio-button  class="example-radio-button" *ngFor="let distribution of distributions" [value]="distribution.tag">
+      {{distribution.title}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <button> Войти</button>
+</form>
+
 <!--(books$ | async).result-->
+
+

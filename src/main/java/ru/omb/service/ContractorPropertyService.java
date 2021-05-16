@@ -70,4 +70,5 @@ public class ContractorPropertyService {
         guidsDto.setValTypes(valTypeRepository.findAll());
         return guidsDto;
     }
+
 }
