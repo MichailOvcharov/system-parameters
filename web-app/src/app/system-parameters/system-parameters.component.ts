@@ -20,6 +20,7 @@ export class SystemParametersComponent implements OnInit {
   public systemContractProperties: SystemContractProperty[];
   public form: FormGroup;
   length: number;
+
   public distributions: {
     id: number,
     title: string,
@@ -29,69 +30,106 @@ export class SystemParametersComponent implements OnInit {
     { id : 1, title: 'Автоматически', tag: 'AUTOMATIC'}
   ];
 
-  // public distributions: {
-  //   id: number,
-  //   title: string,
-  //   tag: string
-  // }[] = [
-  //   { id : 0, title: 'Не задавать алгоритм', tag: 'NO'},
-  //   { id : 1, title: 'Задавать алгоритм', tag: 'YES'}
-  // ];
+  public specials: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_SPEC'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'SPEC'}
+  ];
 
-  favoriteSeason: string;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  public imenniks: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_IMENNIK'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'IMENNIK'}
+  ];
+
+  public assayworks: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_ASSAY'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'ASSAY'}
+  ];
+
+  public chemicals: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_CHEMICAL'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'CHEMICAL'}
+  ];
+
+  public markings: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_MARKING'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'MARKING'}
+  ];
+
+  public statecontrols: {
+    id: number,
+    title: string,
+    tag: string
+  }[] = [
+    { id : 0, title: 'Алгоритм распределения не задается', tag: 'NO_STATE'},
+    { id : 1, title: 'Алгоритм распределения задается', tag: 'STATE'}
+  ];
 
   constructor(private _guidsService: GuidsService, private fb: FormBuilder) {
-
   }
-    // this.description
 
   ngOnInit(): void {
-    // this._guidsService.getAll()
-    // //   .pipe(
-    // //   map(data => {this.currency = data.currences})
-    // // )
-    //   .subscribe(
-    //   (res: Guids) => {
-    //     this.guids = res;
-    //     console.log('111', this.guids.getCurrency());
-    //     if (res && res.currences) {
-    //       this.currency = res.currences
-    //       console.log('111', this.currency);
-    //     }
-    //   }
-    // guids => this.guids = guids
     this._guidsService.getDealType().subscribe(result => {this.dealTypes = result,
       console.log(this.dealTypes)
     });
     this._guidsService.getList().subscribe(result => {this.systemContractProperties = result,
       console.log(this.systemContractProperties.length),
-      console.log(this.getValue(this.systemContractProperties, 1));
+      console.log(this.getValue(this.systemContractProperties, 14));
+      console.log(this.systemContractProperties)
       if (this.systemContractProperties.length > 0) {
         this.form.get('distribution')?.setValue(this.getValue(this.systemContractProperties, 1));
+        this.form.get('special')?.setValue(this.getValue(this.systemContractProperties, 14));
+        this.form.get('imennik')?.setValue(this.getValue(this.systemContractProperties, 15));
+        this.form.get('assaywork')?.setValue(this.getValue(this.systemContractProperties, 16));
+        this.form.get('chemical')?.setValue(this.getValue(this.systemContractProperties, 17));
+        this.form.get('marking')?.setValue(this.getValue(this.systemContractProperties, 18));
+        this.form.get('statecontrol')?.setValue(this.getValue(this.systemContractProperties, 19));
       } else {
         this.form.get('distribution')?.setValue('HANDHELD');
+        this.form.get('special')?.setValue('NO_SPEC');
+        this.form.get('imennik')?.setValue('NO_IMENNIK');
+        this.form.get('assaywork')?.setValue('NO_ASSAY');
+        this.form.get('chemical')?.setValue('NO_CHEMICAL');
+        this.form.get('marking')?.setValue('NO_MARKING');
+        this.form.get('statecontrol')?.setValue('NO_STATE');
       }
     });
-    // this.form.controls['distribution'].setValue('NO');
     this.form = this.fb.group({
       dealType: '',
       currency: '',
-      distribution: new FormControl('')
-      // references: this.fb.array([this.fb.control('')])
-    });
+      distribution: new FormControl(''),
+      special: new FormControl(''),
+      imennik: new FormControl(''),
+      assaywork: new FormControl(''),
+      chemical: new FormControl(''),
+      marking: new FormControl(''),
+      statecontrol: new FormControl(''),
+     });
     console.log(this.length);
-    // if () {
-    //   this.form.get('distribution')?.setValue('HANDHELD');
-    // }
   }
+
   onSubmit(): void {
     console.log(this.form.value);
   }
-
-  // get references(): FormArray {
-  //   return this.form.get('references') as FormArray;
-  // }
 
   getValue(systemContractProperties: SystemContractProperty[], id: number):any  {
     for(let i = 0; i < systemContractProperties.length; i++) {

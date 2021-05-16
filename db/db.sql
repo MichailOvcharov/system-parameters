@@ -85,6 +85,19 @@ insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, creat
 values ('combinedTool', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
 insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
 values ('urgency', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('special', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('imennik', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('assaywork', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('chemical', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('marking', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
+insert into PROPERTY_TYPE (name, TAG, GIST, required, pattern, input_type, create_by, create_date, last_modified_by, last_modified_by_date)
+values ('statecontrol', 'PARAM_SYSTEM', 'FPP',true, '*', 'input', '2021-01-01', now(), null, null);
 --- Тип изделия
 create table JEWERLY_TYPE (
                               id serial,
